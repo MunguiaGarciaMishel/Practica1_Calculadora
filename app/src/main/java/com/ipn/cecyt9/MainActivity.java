@@ -18,6 +18,39 @@ public class MainActivity extends AppCompatActivity {
     Double numero7, numero8, numero9, numero0;
     String operador;
 
+    public void onClickSeno(View miView) {
+        TextView tv = (TextView) findViewById(R.id.textView) ;
+        numero1 = Double.parseDouble(tv.getText().toString());
+        try {
+            resultado = Math.sin(numero1*2.0*Math.PI/360.0);
+            tv.setText(resultado.toString());
+        }catch(NumberFormatException nfe){
+            Toast.makeText(this, "Numero Incorrecto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onClickTangente(View miView) {
+        TextView tv = (TextView) findViewById(R.id.textView) ;
+        numero1 = Double.parseDouble(tv.getText().toString());
+        try {
+            resultado= Math.tan(numero1*2.0*Math.PI/360.0);
+            tv.setText(resultado.toString());
+        }catch(NumberFormatException nfe){
+            Toast.makeText(this, "Numero Incorrecto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onClickCoseno(View miView) {
+        TextView tv = (TextView) findViewById(R.id.textView);
+        numero1 = Double.parseDouble(tv.getText().toString());
+        try {
+            resultado= Math.cos(numero1*2.0*Math.PI/360.0);
+            tv.setText(resultado.toString());
+        }catch(NumberFormatException nfe){
+            Toast.makeText(this, "Numero Incorrecto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void onClickButtonCapturaNumero1(View miView) {
         TextView tv = (TextView) findViewById(R.id.textView);
         numero1 = Double.parseDouble(tv.getText().toString());
@@ -44,10 +77,11 @@ public class MainActivity extends AppCompatActivity {
         onClickButtonCapturaNumero1(miView);
     }
 
-    public void onClickButtonBorrar(View miView) {
-        TextView tv = findViewById(R.id.textView);
-        String value = tv.getText().toString();
-        tv.setText(value = "0");
+    public void onClickButtoBorrar(View miView){
+        numero1=0.0;
+        numero2=0.0;
+        TextView tv = (TextView) findViewById(R.id.textView) ;
+        tv.setText("");
     }
 
     public void onClickIgual(View miView) {
